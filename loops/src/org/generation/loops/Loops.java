@@ -1,4 +1,4 @@
-package org.generation.loopsYCollections;
+package org.generation.loops;
 
 public class Loops {
 
