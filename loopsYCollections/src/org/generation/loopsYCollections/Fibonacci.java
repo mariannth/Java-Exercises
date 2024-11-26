@@ -27,19 +27,19 @@ public class Fibonacci {
 	}
 
 	public static void fibonacciSequence(int n) {
-        int prev1 = 0; // Primer número de la secuencia
-        int prev2 = 1; // Segundo número de la secuencia
+        int a1 = 0; // Primer número de la secuencia
+        int a2 = 1; // Segundo número de la secuencia
 
         for (int i = 0; i <= n; i++) {
             if (i == 0) {
-                System.out.println("0: " + prev1); // Imprime el primer número
+                System.out.println("0: " + a1); // Imprime el primer número
             } else if (i == 1) {
-                System.out.println("1: " + prev2); // Imprime el segundo número
+                System.out.println("1: " + a2); // Imprime el segundo número
             } else {
-                int ocurre = prev1 + prev2; // Suma de los dos números previos
-                System.out.println(i + ": " + ocurre); // Imprime el índice y el número actual
-                prev1 = prev2; // Actualizar el penúltimo número
-                prev2 = ocurre; // Actualizar el último número
+                int actual = a1 + a2; // Suma de los dos números previos
+                System.out.println(i + ": " + actual); // Imprime el índice y el número actual
+                a1 = a2; // Actualizar el penúltimo número
+                a2 = actual; // Actualizar el último número
             }
         }
 	}
