@@ -11,17 +11,19 @@ public class Poo {
 	String nombre;
 	String apellido;
 	int edad;
-	double salario;
-	String puesto;
+	private double salario;
+	private String puesto;
+	private int id;  
 
 	// Método constructor
-	public Poo(String nombre, String apellido, int edad, double salario, String puesto) {
+	public Poo(String nombre, String apellido, int edad, double salario, String puesto, int id) {
 		// El método tiene el mismo nombre de la clase
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
 		this.salario = salario;
 		this.puesto = puesto;
+		this.setId(id);
 	}
 
 //	Metodos de comportamiento
@@ -83,15 +85,33 @@ public class Poo {
 		this.puesto = puesto;
 	}
 
+	public void setAumento(double aumento) {
+        double finalSalary = getSalario() + aumento;
+        setSalario(finalSalary);
+   }
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	//Metodos de conversion a String (toString)
 //	Permite convertir la información de los objetos en String 
 	
+//	@Override
+//	public String toString() {
+//		return "Poo [nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", Salario: " + salario
+//				+ ", Puesto: " + puesto + "]";
+//	}
 	@Override
 	public String toString() {
-		return "Poo [nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", Salario: " + salario
-				+ ", Puesto: " + puesto + "]";
+		return "Poo [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", salario=" + salario
+				+ ", puesto=" + puesto + ", id=" + id + "]";
 	}
+	
 	
 	
 	
