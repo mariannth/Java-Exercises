@@ -2,7 +2,43 @@ package org.generation.poo;
 
 import java.util.HashMap;
 
+// Excepción personalizada
+class EmpleadoNotFoundException extends Exception {
+    public EmpleadoNotFoundException(String message) {
+        super(message);
+    }
+}
+
 public class EmpleadoService {
+
+	HashMap<Integer, Poo> EmpleadoIdList = new HashMap<Integer, Poo>();
+
+	public void addEmpleado(Poo newEmpleado) {
+		EmpleadoIdList.put(newEmpleado.getId(), newEmpleado);
+		
+	}
+	// Buscar empleado por ID con excepción personalizada
+	public Poo findEmpleadoById(Integer id) throws EmpleadoNotFoundException {
+        if (EmpleadoIdList.containsKey(id)) {
+            return EmpleadoIdList.get(id);
+        } else {
+            throw new EmpleadoNotFoundException("Empleado con ID " + id + " no encontrado.");
+        }
+    }
+	// Método para probar el manejo de excepciones
+    public void testFindEmpleado(Integer id) {
+        try {
+            Poo empleado = findEmpleadoById(id);
+            System.out.println("Empleado encontrado: " + empleado);
+        } catch (EmpleadoNotFoundException e) {
+            System.err.println("Error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
+    }
+
+}
+
 //	Por qué la clase PersonService es un "service"
 //	En Java (y en general en diseño de software), una clase de servicio (service) representa una capa lógica que contiene operaciones o funcionalidades específicas relacionadas con un dominio o negocio.
 //	En este caso, la clase PersonService:
@@ -27,19 +63,3 @@ public class EmpleadoService {
 //	Delega tareas específicas a las capas adecuadas (por ejemplo, DAO para datos).
 //	Reutilización:
 //	Los servicios suelen ser usados por múltiples controladores o capas de la aplicación, mejorando la modularidad y reduciendo duplicación de código..
-
-	HashMap<Integer, Poo> EmpleadoIdList = new HashMap<Integer, Poo>();
-
-	public void addEmpleado(Poo newEmpleado) {
-		EmpleadoIdList.put(newEmpleado.getId(), newEmpleado);
-		
-	}
-	
-	public Poo findEmpleadoById(Integer id) {
-		for(int idEmployee: EmpleadoIdList.keySet()) {
-			if(id == idEmployee) {
-				return  ;
-			}
-		}
-	}
-}

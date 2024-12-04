@@ -27,8 +27,15 @@ public class PooMain {
 				+ Mar.getPuesto());
 		
 		HashMap<Integer, Poo> EmpleadoIdList = new HashMap<Integer, Poo>();
-		
-		
+		EmpleadoService service = new EmpleadoService();
+        service.addEmpleado(new Poo("Juan", "Perez ", 26, 25.000d, "Científico de datos", 5));
+        service.addEmpleado(new Poo("Maria", "Lopez ", 26, 25.000d, "Científico de datos", 7));
+
+        // Caso exitoso
+        service.testFindEmpleado(5);
+
+        // Caso con excepción
+        service.testFindEmpleado(6);
 		
 
 	}

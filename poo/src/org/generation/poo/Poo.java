@@ -108,8 +108,8 @@ public class Poo {
 //	}
 	@Override
 	public String toString() {
-		return "Poo [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", salario=" + salario
-				+ ", puesto=" + puesto + ", id=" + id + "]";
+		return "Poo [Nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", Salario: " + salario
+				+ ", Puesto: " + puesto + ", id: " + id + "]";
 	}
 	
 	
