@@ -20,5 +20,10 @@ public class Electronico extends Producto {
 		System.out.println("Este es un producto electrónico y su nombre del producto es: " + nombre + " precio base: $" + precioBase + " meses de garantía: " + mesesGarantia);
 		
 	}
+	
+	@Override
+	public double calcularPrecioFinal() {
+		return calcularPrecio() + 20;
+	}
 
 }

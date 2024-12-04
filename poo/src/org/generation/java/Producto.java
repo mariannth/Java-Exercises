@@ -8,8 +8,9 @@ interface Vendible {
 	void mostrarDetalles();
 	double calcularPrecio();
 }
+// se le debe quitar el contrato implements Vendible, para volverlo abstracto
 
-public class Producto implements Vendible {
+public abstract class Producto  {
 	public String nombre;
 	public double precioBase;
 
@@ -17,6 +18,9 @@ public class Producto implements Vendible {
 		this.nombre = nombre;
 		this.precioBase = precioBase;
 	}
+	
+	
+	public abstract double calcularPrecioFinal();
 
 	public void mostrarDetalles() {
 		System.out.println("Nombre del producto: " + nombre + " precio base: $" + precioBase);
